@@ -7,7 +7,7 @@ terraform {
   }
 }
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-west-3"
 }
 
 data "aws_caller_identity" "current" {}
@@ -3598,7 +3598,7 @@ data "aws_ami" "goat_ami" {
 
 resource "aws_instance" "goat_instance" {
   ami                  = data.aws_ami.goat_ami.id
-  instance_type        = "t2.micro"
+  instance_type        = "t3.micro"
   iam_instance_profile = aws_iam_instance_profile.goat_iam_profile.name
   subnet_id            = aws_subnet.goat_subnet.id
   security_groups      = [aws_security_group.goat_sg.id]
